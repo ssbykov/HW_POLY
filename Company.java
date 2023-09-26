@@ -13,29 +13,32 @@ public class Company {
         this.credit = 0;
         this.taxSystem = taxSystem;
     }
-    public void shiftMoney(int amount){
-        if (amount > 0){
+
+    public void shiftMoney(int amount) {
+        if (amount > 0) {
             debit += amount;
         } else if (amount < 0) {
             credit -= amount;
         }
     }
-    public void payTaxes(){
+
+    public void payTaxes() {
         int tax = taxSystem.calcTaxFor(debit, credit);
         System.out.printf("Компания %s уплатила налог в размере: %d руб.\n", title, tax);
         debit = 0;
         credit = 0;
     }
-    public int applyDeals(Deal[] deals){
-        for (Deal deal: deals) {
+
+    public int applyDeals(Deal[] deals) {
+        for (Deal deal : deals) {
             debit += deal.getDebitChange();
             credit += deal.getCreditChange();
-//            System.out.println(deal.getComment());
         }
         int income = debit - credit;
         payTaxes();
         return income;
     }
+
     public String getTitle() {
         return title;
     }

@@ -29,6 +29,7 @@ public class Main {
         System.out.println(company1.applyDeals(deals));
         company1.setTaxSystem(new UsnIncome());
         System.out.println(company1.applyDeals(deals));
+        System.out.println(deals[0].getComment());
 
 
     }
